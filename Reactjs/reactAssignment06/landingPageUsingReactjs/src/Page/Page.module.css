@@ -1,0 +1,51 @@
+.inlineContainer {
+    text-align: center; 
+    
+display: flex;
+margin: 20px;
+padding: 30px ;
+
+  }
+  
+  .imageContainer, .textContainer {
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  .imageContainer {
+    margin-right: 20px;
+
+  }
+  
+  .textContainer {
+    max-width: 600px;
+    text-align: center;
+margin: 40px;
+
+  }
+.textContainer h1{
+    color: #00306E;
+} 
+
+@media (max-width: 400px) {
+  .inlineContainer {
+    display: block;
+    padding: 15px;
+  }
+
+  .imageContainer {
+    display: block;
+    margin: 0 auto 20px;
+  }
+
+  .textContainer {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+  .image{
+    width: 300px;
+    height: 300px;
+
+  }
+}

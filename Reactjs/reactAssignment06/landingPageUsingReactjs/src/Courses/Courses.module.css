@@ -1,0 +1,40 @@
+
+.card {
+    border: 1px solid #ddd;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 30px;
+    background-color: white;
+    display: flex;
+    display: inline-block;
+    justify-content: space-between; 
+    width: 260px;
+    height: 400px;
+    
+ }
+ 
+  .cardContent {
+    /* padding: 30px; */
+    text-align: center;
+
+  }
+  
+  .cardContent h5 {
+    margin: 0 0 10px;
+    font-size: 24px;
+  }
+  
+  .cardContent a {
+    text-decoration: none;
+    margin: 0;
+    font-size: 16px;
+    color: black;
+  }
+  .cardImage{
+    width: 100%;
+  }
+  @media (max-width: 400px){
+   .card{
+    margin-left : 60px;
+   }
+  }

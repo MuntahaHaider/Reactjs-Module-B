@@ -1,0 +1,26 @@
+
+  .cardcontainer {
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    background-color: #D2093C;
+    text-align: center;
+    padding: 40px;
+    display: inline-block;
+    vertical-align: top;
+    color: white;
+    margin: 0 auto;
+
+  }
+  .row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+  }
+
+  @media (max-width: 400px){
+    .cardcontainer{
+      margin-left : 40px;
+    }
+  }

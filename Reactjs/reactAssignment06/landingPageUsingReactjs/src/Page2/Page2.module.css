@@ -1,0 +1,51 @@
+.inlineContainer {
+text-align: center; 
+display: flex;
+margin: 100px;
+background-color: #F5F5F5;
+
+}
+.imageContainer, .textContainer {
+    display: inline-block;
+    vertical-align: top;
+}
+  .imageContainer {
+    margin-right: 50px;
+
+  }
+  .textContainer {
+    max-width: 600px;
+    text-align: center;
+margin: 40px;
+margin-right: 100px;
+
+  }
+.textContainer h5{
+    color: #00306E;
+} 
+li{
+    list-style: none;
+}
+@media (max-width: 400px) {
+  .inlineContainer {
+    display: block;
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .imageContainer {
+    display: block;
+    margin: 0 auto 20px;
+  }
+
+  .textContainer {
+    display: block;
+    margin: 0 auto;
+    margin-right: 0;
+    max-width: 100%;
+  }
+  .image{
+    width: 300px;
+    height: 300px;
+  }
+}

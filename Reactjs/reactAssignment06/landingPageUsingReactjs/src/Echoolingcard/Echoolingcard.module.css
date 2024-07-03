@@ -1,0 +1,36 @@
+
+.card {
+    border: 1px solid #ddd;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin: 35px;
+    background-color: white;
+    display: flex;
+    display: inline-block;
+    justify-content: space-between; 
+    width: 260px;
+    height: 370px;
+    
+ }
+ 
+  .cardContent {
+    text-align: left;
+    padding:10px;
+
+  }
+  
+  .cardContent h5 {
+    margin: 0 0 10px;
+    font-size: 24px;
+  }
+  
+  .cardContent a {
+    text-decoration: none;
+    margin: 0;
+    font-size: 16px;
+    color: #00306E;
+  }
+  .cardImage{
+    width: 100%;
+  }

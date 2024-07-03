@@ -1,0 +1,54 @@
+
+
+.headOne {
+    background-color: #00306E;
+    padding: 10px 0;
+    height: 40px;
+  }
+  
+
+  #main{
+    height: 600px;
+  }
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+  }
+  
+  .leftNav, .rightNav {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+  }
+  
+  .leftNav li, .rightNav li {
+    margin-right: 20px;
+
+  }
+  
+  .leftNav li:last-child, .rightNav li:last-child {
+    margin-right: 0;
+
+  }
+  
+  .leftNav li a, .rightNav li a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .rightNav li a i {
+    font-size: 18px;
+  }
+  @media (max-width: 400px){
+    header{
+      display: none;
+    }
+    
+  }
