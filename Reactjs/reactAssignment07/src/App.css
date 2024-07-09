@@ -1,0 +1,70 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+ background-image: url('https://img.freepik.com/premium-vector/gradient-connection-background_23-2150519259.jpg?size=626&ext=jpg&ga=GA1.1.2113030492.1720396800&semt=ais_user');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-container {
+  width: 90%;
+  max-width: 400px;
+background-color: #00488B;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  font-family: monospace;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  
+}
+.form label {
+  margin-bottom: 8px;
+}
+.form input {
+  margin-bottom: 16px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.form button {
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+p{
+  color: white;
+}
+.form button:hover {
+  background-color: #0056b3;
+}
+.form-toggle {
+  margin-top: 10px;
+  text-align: center;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 14px;
+}
+.form button:hover {
+  background-color: #0056b3;
+}
+.form-toggle {
+  color: #007bff;
+  cursor: pointer;
+}
+.form-toggle:hover {
+  text-decoration: underline;
+}
