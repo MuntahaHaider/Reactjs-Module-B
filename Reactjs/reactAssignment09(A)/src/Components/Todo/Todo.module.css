@@ -1,0 +1,25 @@
+
+.cont {
+    border-radius: 20px;
+    margin: auto;
+    width: 550px;
+    height: auto;
+    padding: 30px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
+    margin-top: 200px;
+   
+
+  }
+.cont h1{
+    text-align: center;
+    text-shadow: 3px 3px 3px gray;
+    font-family: monospace;
+}
+input{
+    width: 70%;
+    padding: 10px;
+    border: none;
+    border-radius: 15px ;
+    margin: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
+}
