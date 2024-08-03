@@ -1,0 +1,39 @@
+body{
+  margin: 80px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-image: url('https://t3.ftcdn.net/jpg/03/55/60/70/360_F_355607062_zYMS8jaz4SfoykpWz5oViRVKL32IabTP.jpg');
+background-repeat: no-repeat;
+background-size: cover;}
+form{
+  width: 400px;
+  border: 1px solid black;
+  border-radius: 20px;
+  box-shadow: 5px 5px 20px rgba(0.2,0.2,0.9);
+  padding: 40px;
+  margin: auto;
+  height: auto;
+}
+input{
+margin-bottom: 30px;
+width: 90%;
+padding: 10px;
+}
+
+@media (max-width: 400px) {
+  body {
+    margin: 20px;
+  }
+
+  form {
+    width: 90%;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  input {
+    margin-bottom: 20px;
+    width: 90%;
+    padding: 8px;
+  }
+}
