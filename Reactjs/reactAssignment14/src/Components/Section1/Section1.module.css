@@ -1,0 +1,10 @@
+.Section1{
+    padding: 80px;
+    font-family: cursive;
+}
+.hr{
+    background-image: url('../../assets/Images/hr.png');
+    height: 10px;
+    width: 100%;
+    
+}

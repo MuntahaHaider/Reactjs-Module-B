@@ -1,0 +1,13 @@
+.container{
+    padding: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+@media (max-width: 400px) {
+    .container{
+        display: block;
+        padding: 10px;
+    }
+    
+}
