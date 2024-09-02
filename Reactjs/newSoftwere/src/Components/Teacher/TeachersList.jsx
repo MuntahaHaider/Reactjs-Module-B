@@ -1,0 +1,73 @@
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Box } from '@mui/material';
+import { collection, getDocs } from 'firebase/firestore';
+import React, { useEffect, useState } from 'react';
+import { database } from '../../Config/firebase';
+import Sidebar from '../Sidebar/Sidebar';
+
+
+const TeacherList = () => {
+  const [teacherRegisterData, setTeacherRegisterData] = useState([]);
+
+  const getData = async () => {
+    try {
+      let array = [];
+      const getData = await getDocs(collection(database, "TeacherRegistration"));
+      getData.forEach((doc) => {
+        array.push({ ...doc.data(), id: doc.id });
+      });
+      setTeacherRegisterData(array);
+    } catch (error) {
+      console.error("Error fetching data: ", error);
+    }
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  return (
+    <>
+<Box sx={{ display: 'flex' }}>
+  <Sidebar />
+         <Box component="main"
+          sx={{
+            flexGrow: 1,
+            p: 3,
+            display: 'flex',
+            justifyContent: 'center',
+            maxWidth: 700,}}>
+    <div style={{  width: '100%' , marginTop:100, color: 'black' }}>
+    <h3 style={{textAlign:'center'}}>Teachers List</h3><br />
+      <TableContainer sx={{maxWidth: 900, margin: 'auto', marginTop: '20px' }} >
+        <Table aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell align="left">Id</TableCell>
+              <TableCell align="right">First Name</TableCell>
+              <TableCell align="right">Last Name</TableCell>
+              <TableCell align="right">Email</TableCell>
+              <TableCell align="right">Class</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {teacherRegisterData.map((teacher, index) => (
+              <TableRow key={index} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                <TableCell align="left">{teacher.id}</TableCell>
+                <TableCell align="right">{teacher.firstName}</TableCell>
+                <TableCell align="right">{teacher.lastName}</TableCell>
+                <TableCell align="right">{teacher.email}</TableCell>
+                <TableCell align="right">{teacher.classs}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+
+      </div>
+         </Box>
+  </Box>
+    </>
+  )
+}
+
+export default TeacherList;

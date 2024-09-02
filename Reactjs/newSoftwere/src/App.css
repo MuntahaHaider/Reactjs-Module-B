@@ -1,0 +1,11 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    margin-left: 0px;
+}
+h3{
+    text-align: center;
+    text-decoration: underline;
+}
