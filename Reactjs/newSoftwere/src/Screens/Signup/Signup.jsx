@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom';
 import {  Button ,Grid,Paper,  Table,  TableBody,  TableCell,  TableContainer,  TableHead,  TableRow,  TextField, Typography ,} from '@mui/material'
-import { collection, addDoc, getDocs ,updateDoc, doc, deleteDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs ,updateDoc, doc, deleteDoc, setDoc } from "firebase/firestore";
 import { auth, database } from '../../Config/firebase';
 // import Tables from '../Table/Tables';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
@@ -17,58 +17,95 @@ const Signup = () => {
     const navigate = useNavigate()
 
       const addData = async (e) => {
-// Authentication
-let userObj = {
-  name,
-  username,
-  email,
-};
-createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    console.log(userCredential)
-    localStorage.setItem('userData' , JSON.stringify(userObj))
-    navigate('/login')
-  })
-  .catch((error) => {
-   console.log(error)
-  });
-
-
-// DataBase
         e.preventDefault();
-        try {
-          let userObj = {
-            name,
-            username,
-            email,
-            password
-          };
-          const docRef = await addDoc(collection(database, "users"),userObj);
-          console.log(docRef);
-        } catch (error) {
-          console.log(error);
-        }
-      }
+        console.log(name,username, email, password);
+        await createUserWithEmailAndPassword(auth, email, password)
+          .then(async (userCredential) => {
+            console.log("user", userCredential.user.uid);
+            // data in database
+            let userObj = {
+              name,
+              username,
+              email,
+            };
+            const uID = userCredential.user.uid;
+            const storeData = await setDoc(doc(database, "users", uID), userObj);  
+          console.log(storeData,"data store");
+            navigate("/login");
+          })
+          .catch((err) => {
+            console.log(err);
+          });
 
-     const getData = async ()=>{
-      try {
-        const arr = [];
-        const getData = await getDocs(collection(database, "users"));
+// Authentication
+// let userObj = {
+//   name,
+//   username,
+//   email,
+// };
+// createUserWithEmailAndPassword(auth, email, password)
+//   .then((userCredential) => {
+//     console.log(userCredential)
+//     localStorage.setItem('userData' , JSON.stringify(userObj))
+//     navigate('/login')
+//   })
+//   .catch((error) => {
+//    console.log(error)
+//   });
+
+
+// // DataBase
+//         e.preventDefault();
+//         try {
+//           let userObj = {
+//             name,
+//             username,
+//             email,
+//             password
+//           };
+//           const docRef = await addDoc(collection(database, "users"),userObj);
+//           console.log(docRef);
+//         } catch (error) {
+//           console.log(error);
+//         }
+//       }
+
+//      const getData = async ()=>{
+//       try {
+//         const arr = [];
+//         const getData = await getDocs(collection(database, "users"));
   
-        getData.forEach((doc) => {
-          arr.push({ ...doc.data(), id: doc.id });
-          setRefresh(!refresh)
-        });
+//         getData.forEach((doc) => {
+//           arr.push({ ...doc.data(), id: doc.id });
+//           setRefresh(!refresh)
+//         });
    
-        setUserdata(arr);
+//         setUserdata(arr);
        
-      } catch (error) {
-        console.log(error);
-      }
-     }
-     useEffect(()=>{
-      getData()
-    },[refresh])
+//       } catch (error) {
+//         console.log(error);
+//       }
+//      }
+//      useEffect(()=>{
+//       getData()
+//     },[refresh])
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
 
 //  console.log(userdata)
 

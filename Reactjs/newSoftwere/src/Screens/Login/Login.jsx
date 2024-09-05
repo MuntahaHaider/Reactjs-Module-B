@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom';
 import { Button, Grid, Paper, TextField, Typography } from '@mui/material'
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../Config/firebase';
+import { auth, database } from '../../Config/firebase';
 import seminar from '../../assets/Seminar.png'
 import logo from '../../assets/logo.jpg'
+import { doc, getDoc } from 'firebase/firestore';
 
 const Login = () => {
   const [email,setEmail] = useState('')
@@ -13,11 +14,16 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
-    signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
+    console.log(email,password)
+    await signInWithEmailAndPassword(auth, email, password)
+    .then(async(userCredential) => {
       console.log(userCredential)
-      navigate('/student/student-list')
+      console.log(userCredential.user.uid)
+      localStorage.setItem('UserID',userCredential.user.uid)
+      const getData = await getDoc(doc(database,'users',userCredential.user.uid))
+      console.log('getData',getData.data())
+      alert('User Login......! \n  Welcome to the Dashboard... ')
+      navigate('/student/student-list');
     })
     .catch((error) => {
       console.log(error)

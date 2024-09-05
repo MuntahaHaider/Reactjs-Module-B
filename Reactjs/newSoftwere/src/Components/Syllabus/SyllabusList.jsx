@@ -46,6 +46,8 @@ const SyllabusList =  () => {
               <TableCell align="left">Id</TableCell>
               <TableCell align="right">Subject Name</TableCell>
               <TableCell align="right">Class</TableCell>
+              <TableCell align="right">File</TableCell>
+
             </TableRow>
           </TableHead>
           <TableBody>
@@ -54,6 +56,8 @@ const SyllabusList =  () => {
                 <TableCell align="left">{syllabus.id}</TableCell>
                 <TableCell align="right">{syllabus.subjectName}</TableCell>
                 <TableCell align="right">{syllabus.classs}</TableCell>
+                <TableCell align="right">{syllabus.image}</TableCell>
+
               </TableRow>
             ))}
           </TableBody>

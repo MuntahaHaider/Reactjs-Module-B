@@ -20,6 +20,8 @@ import SchoolIcon from '@mui/icons-material/School';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { getAuth, signOut } from "firebase/auth";
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
+import { auth } from '../../Config/firebase';
+import { Tooltip } from '@mui/material';
 
 const drawerWidth = 300;
 
@@ -39,15 +41,16 @@ export default function Sidebar() {
   };
 
   const handleLogout = () => {
-    const auth = getAuth();
-    signOut(auth)
-      .then(() => {
-        console.log("User signed out successfully.");
-        navigate('/');
-      })
-      .catch((error) => {
-        console.error("Error signing out: ", error);
-      });
+    // const auth = getAuth();
+   signOut(auth)
+   .then(() => {
+    localStorage.clear('UserID')
+  alert('user signOut.....')
+  navigate('/login')
+  // Sign-out successful.
+}).catch((error) => {
+  // An error happened.
+});
   };
 
   const navigate = useNavigate();
@@ -349,10 +352,16 @@ export default function Sidebar() {
             color="inherit"
             aria-label="logout"
             edge="end"
-            onClick={handleLogout}
+            // onClick={handleLogout}
             sx={{ ml: 2 }}
           >
-            <LogoutIcon style={{ fontSize: 30 }} />
+            <Tooltip title="SignOut">
+  <LogoutIcon 
+    onClick={handleLogout} 
+    style={{ fontSize: 30, cursor: 'pointer' }} 
+  />
+</Tooltip>
+            {/* <LogoutIcon  onClick={handleLogout}  style={{ fontSize: 30 , cursor:'pointer'}} title="Logout" /> */}
           </IconButton>
         </Toolbar>
       </AppBar>

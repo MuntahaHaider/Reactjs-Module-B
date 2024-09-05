@@ -19,16 +19,21 @@ import FeeVoucher from './Components/Fees/FeeVoucher';
 import FeeSubmission from './Components/Fees/FeeSubmission';
 import ExamSchedule from './Components/Exam/ExamSchedule';
 import ExamResult from './Components/Exam/ExamResult';
+import AuthRoute from './Screens/Routes/AuthRoute';
+import ProtectedRoute from './Screens/Routes/ProtectedRoute';
 
 
 function App() {
   return (
     <>
      <Routes>
-          <Route path="/" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-
-        <Route path="/student/student-registration" element={<StudentRegistrationForm />} />
+         <Route element={<AuthRoute />}>
+                <Route path='/' element={<Signup />} />
+                <Route path="/login" element={<Login />} />
+         </Route>
+         
+    <Route element={<ProtectedRoute />}>
+         <Route path="/student/student-registration" element={<StudentRegistrationForm />} />
         <Route path="/student/student-list" element={<StudentList />} />
 
         <Route path="/teachers/teacher-registration" element={<TeachersRegistrationForm  />} />
@@ -52,6 +57,9 @@ function App() {
 
         <Route path="/exam/exam-schedule" element={<ExamSchedule />} />
         <Route path="/exam/exam-result" element={<ExamResult />} />
+    </Route>
+
+       
 
      </Routes>
     </>
