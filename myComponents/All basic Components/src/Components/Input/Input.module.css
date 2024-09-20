@@ -1,0 +1,13 @@
+input{
+    margin: 20px;
+    padding: 8px;
+    width: 200px;
+    border-top: none ;
+    border-left: none ;
+
+    border-right: none ;
+
+    /* border-radius: 10px; */
+    /* background-color: #B1B8B6; */
+    transition: 0.2s;
+}
